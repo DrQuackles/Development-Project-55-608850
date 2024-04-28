@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birdcall Classification CNN Model</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav class="navbar-container container">
+            <a href="/" class="home-link">
+                <div class="navbar-logo"></div>
+                Birdcall Classification
+            </a>
+            <button type="button" class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="title">Upload File</h1>
+            <br><br>
+            <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="my_image">Upload Your Audio:</label>
+                    <div>
+                        <input type="file" class="form-control" name="my_image" id="my_image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+            {% if prediction %}
+                <img src="{{ img_path }}" height="100px" width="400px">
+                <h2>Your Prediction: <i>{{ prediction }}</i></h2>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
+
